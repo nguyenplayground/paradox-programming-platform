@@ -1,0 +1,22 @@
+# How to change cursor image in pygame
+
+In case you want to create and use your own colorfully customized cursor from an image (and display different cursors depending on where you are in the game, e.g. in the menu or "ingame").
+
+This is how to do it:
+
+set mouse visibility to false
+create a customized image you want to use as cursor
+create a rect from that customized cursor image
+update the rects position to your (invisible) mouse position
+draw the image at the location of the rect
+Here is a short code example:
+
+"""
+  pygame.mouse.set_visible(False)
+  cursor_img_rect = cursor_img.get_rect()
+
+  while True:
+      # in your main loop update the position every frame and blit the image    
+      cursor_img_rect.center = pygame.mouse.get_pos()  # update position 
+      gameDisplay.blit(cursor_img, cursor_img_rect) # draw the cursor
+"""
